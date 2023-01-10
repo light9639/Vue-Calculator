@@ -134,8 +134,6 @@ button {
   color: #fff;
   font-size: 1.5rem;
   border-radius: 10%;
-  /* width: 90px;
-  height: 90px; */
   padding: 25px 0;
   cursor: pointer;
   transition: 0.5s;
@@ -190,17 +188,10 @@ button:active {
     max-width: 98%;
     width: 90%;
   }
+
   button {
     padding: 15px 0;
   }
-  /* button {
-    width: 100%;
-    height: 100%;
-    padding: 25px 0;
-  }
-  .ZeroButton {
-    max-width: 100%;
-  } */
 }
 </style>
 
