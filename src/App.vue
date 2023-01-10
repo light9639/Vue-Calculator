@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <div class="Wrapper">
-      <h1 class="title">Nuxt 계산기</h1>
+      <h1 class="title">Vue 계산기</h1>
       <input class="SearchBar" readOnly v-model="result" />
       <div class="ButtonWrapper">
         <button class="TopButton" @click="allClear">AC</button>
@@ -28,62 +28,61 @@
   </section>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      result: "",
-      point: true,
-      operation: true,
-    };
-  },
-  methods: {
-    getNumber(event) {
-      this.result = this.result + event.target.value;
-      this.operation = true;
-    },
-    getOperation(event) {
-      if (this.operation) {
-        this.result = this.result + event.target.value;
-        this.operation = false;
-      }
-    },
-    getPoint(event) {
-      if (this.result.length === 0) {
-        return;
-      }
-      if (this.point) {
-        this.result = this.result + event.target.value;
-        this.point = false;
-      }
-    },
-    getResult() {
-      const replace_str = this.result.replace(/×/gi, "*").replace(/÷/gi, "/");
+<script setup>
+import { ref } from "vue";
 
-      if ( isNaN(eval(replace_str)) ) {
-        this.result = "";
-      }
-      else if ( eval(replace_str) == Infinity ) {
-        alert("0으로 나눌수 없습니다.");
-        this.result = "";
-        return false;
-      }
-      else {
-        this.result = eval(replace_str);
-      }
-    },
-    Delete() {
-      this.point = true;
-      this.operation = true;
-      const str = String(this.result).slice(0, -1);
-      this.result = str;
-    },
-    allClear() {
-      this.point = true;
-      this.result = "";
-    },
-  },
+const result = ref("");
+const point = ref(true);
+const operation = ref(true);
+
+const getNumber = (event) => {
+  result.value = result.value + event.target.value;
+  operation.value = true;
 };
+
+const getOperation = (event) => {
+  if (operation.value) {
+    result.value = result.value + event.target.value;
+    operation.value = false;
+  }
+};
+
+const getPoint = (event) => {
+  if (result.value.length === 0) {
+    return;
+  }
+  if (point.value) {
+    result.value = result.value + event.target.value;
+    point.value = false;
+  }
+};
+
+const getResult = () => {
+  const replace_str = result.value.replace(/×/gi, "*").replace(/÷/gi, "/");
+
+  if (isNaN(eval(replace_str))) {
+    result.value = "";
+  } else if (eval(replace_str) == Infinity) {
+    alert("0으로 나눌수 없습니다.");
+    result.value = "";
+    return false;
+  } else {
+    result.value = eval(replace_str);
+  }
+};
+
+const Delete = () => {
+  point.value = true;
+  operation.value = true;
+  const str = String(result.value).slice(0, -1);
+  result.value = str;
+};
+
+const allClear = () => {
+  point.value = true;
+  result.value = "";
+};
+
 </script>
 
 <style>
@@ -93,6 +92,7 @@ export default {
   justify-content: center;
   align-items: center;
   max-width: 500px;
+  width: 100%;
   padding: 35px 0;
   border-radius: 10px;
   margin: 0 auto;
@@ -195,11 +195,11 @@ button:active {
     width: 90%;
   }
   button {
-    width: 75px;
-    height: 75px;
+    max-width: 75px;
+    width: 100%;
   }
   .ZeroButton {
-    width: 175px;
+    max-width: 175px;
   }
 }
 </style>
