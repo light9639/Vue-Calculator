@@ -1,7 +1,7 @@
 # :zap: Calculator 프로젝트 소개
 :octocat: 바로가기 https://light9639.github.io/Vue-Calculator/
 
-
+![light9639 github io_Vue-Calculator_ (1)](https://user-images.githubusercontent.com/95972251/211576884-7236ebd8-4c19-400b-a0e2-4328de089003.png)
 
 :sparkles: Vue 계산기 사이트입니다. :sparkles:
 
