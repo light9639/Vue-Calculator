@@ -13,6 +13,12 @@ body {
   background-color: #f1f1f1;
 }
 
+@media screen and (max-width: 640px) {
+  body {
+    background-color: #111;
+  }
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;

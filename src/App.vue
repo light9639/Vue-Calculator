@@ -98,7 +98,6 @@ const allClear = () => {
   margin: 0 auto;
   margin-top: 5%;
   background-color: #111;
-  overflow: hidden;
 }
 
 .title {
@@ -135,8 +134,9 @@ button {
   color: #fff;
   font-size: 1.5rem;
   border-radius: 10%;
-  width: 90px;
-  height: 90px;
+  /* width: 90px;
+  height: 90px; */
+  padding: 25px 0;
   cursor: pointer;
   transition: 0.5s;
 }
@@ -186,21 +186,21 @@ button:active {
 }
 
 @media screen and (max-width: 480px) {
-  .ButtonWrapper {
-    max-width: 90%;
-    margin: 0 auto;
-  }
   .SearchBar {
     max-width: 98%;
     width: 90%;
   }
   button {
-    max-width: 75px;
+    padding: 15px 0;
+  }
+  /* button {
     width: 100%;
+    height: 100%;
+    padding: 25px 0;
   }
   .ZeroButton {
-    max-width: 175px;
-  }
+    max-width: 100%;
+  } */
 }
 </style>
 
